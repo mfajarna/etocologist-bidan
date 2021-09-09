@@ -2,7 +2,8 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Dashboard, Messages, Profile, SplashScreen } from '../pages';
+import { Dashboard, Messages, Profile, Signin, SplashScreen } from '../pages';
+import { BottomNavigator } from '../components';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -28,7 +29,7 @@ const Router = () => {
                 options={{headerShown: false}}
             />
             <Stack.Screen
-                name="SignIn"
+                name="Signin"
                 component={Signin}
                 options={{headerShown: false}}
             />
