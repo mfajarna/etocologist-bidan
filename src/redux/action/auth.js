@@ -12,7 +12,7 @@ export const signInAction = (form, navigation) => dispatch => {
         showMessage('Selamat Berhasil Login','success');
         storeData('token', {value: token});
         storeData('userProfile', profile);
-        navigation.reset({index: 0, routes: [{name: 'MainApp'}]});
+        navigation.reset({index: 0, routes: [{name: 'Konfirmasi'}]});
     }).catch(err => {
         dispatch(setLoading(false));
         showMessage('Username atau Password Salah');

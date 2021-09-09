@@ -5,36 +5,59 @@ import { DummyImage1, Ic_notification, Il_cover_dashboard } from '../../assets';
 import { FiturContent } from '../../components';
 import { getDataProfile } from '../../redux/action/profile';
 import { getData } from '../../utils';
+import Firebase from '../../utils/Firebase';
 
-const Dashboard = () => {
+const Dashboard = ({navigation}) => {
 
     const dispatch = useDispatch();
+    const[bidan,setBidan] = useState([]);
     const [isModalVisible, setModalVisible] = useState(false);
     const [userProfile, setUserProfile] = useState({});
 
     const{dataProfile} = useSelector(state => state.profileReducer);
 
     useEffect(() => {
-       
+     getUserData()
+       getBidan()
         dispatch(getDataProfile());
         getData('userProfile').then(res => {
             setUserProfile(res);
         })
-    },[])
+      navigation.addListener('focus', () => {
+      getUserData();
+    });
+    },[navigation])    
 
 
-    const renderContent =  () => {
-        if(dataProfile.is_messages == 0)
-        {
-            navigate.replace('Konfirmasi');
-        }else{
-  
-           
+    const getUserData = () => {
+    getData('user').then(res => {
+      const data = res;
+    });
+  };
+
+
+    const getBidan = () => {
+    Firebase.database()
+      .ref('users/')
+      .once('value')
+      .then(res => {
+        if (res.val()) {
+          const oldData = res.val();
+          const data = [];
+          Object.keys(oldData).map(key => {
+            data.push({
+              id: key,
+              data: oldData[key],
+            });
+          });
+          setBidan(data);
         }
-    }
-    
+      })
+      .catch(err => {
+        showError(err.message);
+      });
+  }
 
-    console.log('data profilea', dataProfile);
 
     return (
         <View style={styles.container}>

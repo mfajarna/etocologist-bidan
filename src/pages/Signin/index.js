@@ -5,6 +5,7 @@ import { Ic_google, Ic_logo, Il_google } from '../../assets'
 import { CustomButton, CustomTextInput } from '../../components/atoms'
 import { signInAction } from '../../redux/action/auth'
 import {Gap} from '../../utils'
+import Firebase from '../../utils/Firebase'
 import useForm from '../../utils/useForm'
 // import { GoogleSignin, GoogleSigninButton, statusCodes } from '@react-native-google-signin/google-signin'
 
@@ -19,6 +20,21 @@ const Signin = ({navigation}) => {
     const dispatch = useDispatch();
 
     const onSubmit = () => {
+        Firebase.auth().signInWithEmailAndPassword(form.email, form.password)
+            .then(res => {
+            Firebase.database()
+            .ref(`admin/${res.user.uid}/`)
+            .once('value')
+            .then(resDB => {
+                if(resDB.val()){
+                storeData('user', resDB.val())
+                }
+            })
+            }).catch(err => {
+            console.log('err', err)
+            })
+
+
         dispatch(signInAction(form, navigation));
     }
 

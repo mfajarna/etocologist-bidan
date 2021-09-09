@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { Dashboard, Messages, Profile, Signin, SplashScreen } from '../pages';
+import { Chatting, Dashboard, Konfirmasi, Messages, Profile, Signin, SplashScreen } from '../pages';
 import { BottomNavigator } from '../components';
 
 const Stack = createStackNavigator();
@@ -51,6 +51,16 @@ const Router = () => {
             <Stack.Screen
                 name="MainApp"
                 component={MainApp}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="Konfirmasi"
+                component={Konfirmasi}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="Chatting"
+                component={Chatting}
                 options={{headerShown: false}}
             />
         </Stack.Navigator>
