@@ -5,6 +5,8 @@ const initBiodata = {
         umur_kehamilan: 0,
         bb: 10
     }],
+    dataKehamilan: [],
+    allIbu : []
 }
 
 export const poliibuReducer = (state = initBiodata, action) => {
@@ -31,6 +33,23 @@ export const poliibuReducer = (state = initBiodata, action) => {
             dataGrafik : action.value
         }
     }
+
+    if(action.type === "SET_IBU")
+    {
+        return {
+            ...state,
+            allIbu : action.value
+        }
+    }
+
+    if(action.type === "SET_KEHAMILAN")
+    {
+        return {
+            ...state,
+            dataKehamilan : action.value
+        }
+    }
+
 
 
     return state;

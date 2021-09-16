@@ -4,6 +4,9 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Chatting, Dashboard, Konfirmasi, Messages, Profile, Signin, SplashScreen } from '../pages';
 import { BottomNavigator } from '../components';
+import PoliAnak from '../pages/PoliAnak';
+import PoliIbu from '../pages/PoliIbu';
+import DetailIbu from '../pages/DetailIbu';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -61,6 +64,21 @@ const Router = () => {
             <Stack.Screen
                 name="Chatting"
                 component={Chatting}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="PoliAnak"
+                component={PoliAnak}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="PoliIbu"
+                component={PoliIbu}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="DetailIbu"
+                component={DetailIbu}
                 options={{headerShown: false}}
             />
         </Stack.Navigator>

@@ -63,7 +63,7 @@ const Dashboard = ({navigation}) => {
         <View style={styles.container}>
              <View style={styles.header}>
                 <View>
-                    <Text style={styles.text}>Hi {userProfile.name}!</Text>
+                    <Text style={styles.text}>Hi Bidan {userProfile.name}!</Text>
                     <Text style={styles.desc}>Apa kabar hari ini?</Text>
                 </View>
                 <View style={{ flexDirection: 'row' }}>
