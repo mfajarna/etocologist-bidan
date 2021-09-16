@@ -21,18 +21,31 @@ export const getDataGrafikAnak = (id) => dispatch => {
 
 
     getData('token').then(resToken => {
-        axios.get(`${API_HOST.url}/grafik-anak?id_anak=${id}`, {
+        axios.get(`${API_HOST.url}/get-grafik-anak?id_anak=${id}`, {
             headers:{
                 Authorization: resToken.value
             }
         }).then(res =>{
             dispatch({type: 'SET_GRAFIK_ANAK', value: res.data.data})
             
-            
         }).catch(err => {
             console.log(err.message)
         })
     }).catch(err => {
         console.log(err.message);
+    })
+}
+
+export const getSemuaAnak = () => dispatch => {
+    getData('token').then(resToken =>{
+        axios.get(`${API_HOST.url}/get-data-anak`, {
+            headers:{
+                Authorization: resToken.value
+            }
+        }).then(res => {
+             dispatch({type: 'SET_SEMUA_ANAK', value: res.data.data});
+        })
+    }).catch(err => {
+        console.log(err.message)
     })
 }

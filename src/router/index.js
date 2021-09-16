@@ -7,6 +7,7 @@ import { BottomNavigator } from '../components';
 import PoliAnak from '../pages/PoliAnak';
 import PoliIbu from '../pages/PoliIbu';
 import DetailIbu from '../pages/DetailIbu';
+import DetailAnak from '../pages/DetailAnak';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -79,6 +80,11 @@ const Router = () => {
             <Stack.Screen
                 name="DetailIbu"
                 component={DetailIbu}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="DetailAnak"
+                component={DetailAnak}
                 options={{headerShown: false}}
             />
         </Stack.Navigator>
