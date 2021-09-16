@@ -8,6 +8,7 @@ import PoliAnak from '../pages/PoliAnak';
 import PoliIbu from '../pages/PoliIbu';
 import DetailIbu from '../pages/DetailIbu';
 import DetailAnak from '../pages/DetailAnak';
+import FindUs from '../pages/FindUs';
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -85,6 +86,11 @@ const Router = () => {
             <Stack.Screen
                 name="DetailAnak"
                 component={DetailAnak}
+                options={{headerShown: false}}
+            />
+            <Stack.Screen
+                name="FindUs"
+                component={FindUs}
                 options={{headerShown: false}}
             />
         </Stack.Navigator>

@@ -95,7 +95,7 @@ const Dashboard = ({navigation}) => {
                 <View style={styles.fiturContent}>
                     <FiturContent label="Poli Anak" onPress={() => navigation.navigate('PoliAnak')} />
                     <FiturContent label="Poli Ibu"  onPress={() => navigation.navigate('PoliIbu')}/>
-                    <FiturContent label="Poli Massas"/>
+                    <FiturContent label="Find Us" onPress={() => navigation.navigate('FindUs')}/>
                     
                 </View>
                 </View>
